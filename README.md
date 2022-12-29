@@ -1,6 +1,6 @@
 # Countries Application 🗺
 
-Web Application using Cryptocurrency API
+Web Application using Countries API and Echarts to plot the map
 
 ## Built With
 
