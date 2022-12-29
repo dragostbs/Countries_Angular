@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+// @import '~bootstrap/scss/bootstrap';
+
+.pagination {
+  --bs-pagination-focus-box-shadow: 0 0 0 0.25rem rgba(18, 18, 18, 0.25) !important;
+  --bs-pagination-active-color: #fff;
+  --bs-pagination-active-bg: #494949 !important;
+  --bs-pagination-active-border-color: #000000 !important;
+  --bs-pagination-color: #000000 !important;
+}
+
+.nav {
+  --bs-nav-link-color: #000000 !important;
+  --bs-nav-link-hover-color: #000000 !important;
+  --bs-nav-link-disabled-color: #000000 !important;
+}

@@ -1,0 +1,332 @@
+<form
+  [formGroup]="bookingForm"
+  class="d-flex justify-content-center pt-4 pb-5"
+  (ngSubmit)="addBooking()"
+>
+  <div class="card w-50 pt-4 pb-4">
+    <div class="mb-3 mt-3 row">
+      <label for="typeahead-config" class="col-xs-3 col-sm-auto col-form-label"
+        >Room Nr:</label
+      >
+      <div class="col">
+        <input
+          type="text"
+          formControlName="roomId"
+          placeholder="Provide the Room ID"
+          class="form-control"
+        />
+      </div>
+      <p
+        class="error mt-2 mb-0"
+        *ngIf="bookingForm.get('roomId')?.hasError('required')"
+      >
+        Room ID is Required 📢
+      </p>
+    </div>
+    <div class="mb-3 row">
+      <label for="typeahead-config" class="col-xs-3 col-sm-auto col-form-label"
+        >Guest Name:</label
+      >
+      <div class="col">
+        <input
+          type="text"
+          formControlName="guestName"
+          placeholder="Provide the Guest Name"
+          class="form-control"
+        />
+      </div>
+      <p
+        class="error mt-2 mb-0"
+        *ngIf="bookingForm.get('guestName')?.hasError('minlength')"
+      >
+        Guest Name should be at least 5 characters long 📢
+      </p>
+    </div>
+    <div class="mb-3 row">
+      <label for="typeahead-config" class="col-xs-3 col-sm-auto col-form-label"
+        >Email:</label
+      >
+      <div class="col">
+        <input
+          type="text"
+          formControlName="guestMail"
+          placeholder="Provide an Email Address"
+          class="form-control"
+        />
+      </div>
+      <p
+        class="error mt-2 mb-0"
+        *ngIf="bookingForm.get('guestMail')?.hasError('email')"
+      >
+        Email is Required and sholud have the @ symbol 📢
+      </p>
+    </div>
+    <div class="mb-3 row">
+      <label for="typeahead-config" class="col-xs-3 col-sm-auto col-form-label"
+        >Mobile Nr:</label
+      >
+      <div class="col">
+        <input
+          type="number"
+          formControlName="mobileNumber"
+          placeholder="Provide the Mobile Number"
+          class="form-control"
+        />
+      </div>
+      <p
+        class="error mt-2 mb-0"
+        *ngIf="bookingForm.get('mobileNumber')?.hasError('required')"
+      >
+        Mobile Number is Required 📢
+      </p>
+    </div>
+    <div class="mb-3 row">
+      <label for="typeahead-config" class="col-xs-3 col-sm-auto col-form-label"
+        >Amount:</label
+      >
+      <div class="col">
+        <input
+          type="number"
+          formControlName="bookingAmount"
+          placeholder="Provide the Booking Amount"
+          class="form-control"
+        />
+      </div>
+      <p
+        class="error mt-2 mb-0"
+        *ngIf="bookingForm.get('bookingAmount')?.hasError('required')"
+      >
+        Amount is Required 📢
+      </p>
+    </div>
+    <div class="date col-9">
+      <div class="input-group">
+        <input
+          class="form-control"
+          formControlName="checkinDate"
+          placeholder="Check-in Date"
+          ngbDatepicker
+          #d="ngbDatepicker"
+          type="text"
+        />
+        <button
+          class="btn btn-outline-secondary bi bi-calendar3"
+          (click)="d.toggle()"
+          type="button"
+        ></button>
+      </div>
+      <p
+        class="errorDate mt-2 mb-0"
+        *ngIf="bookingForm.get('checkinDate')?.hasError('required')"
+      >
+        Check-in Date is Required 📢
+      </p>
+    </div>
+    <div class="date col-9 mt-3 mb-3">
+      <div class="input-group">
+        <input
+          class="form-control"
+          formControlName="checkoutDate"
+          placeholder="Check-out Date"
+          ngbDatepicker
+          #e="ngbDatepicker"
+          type="text"
+        />
+        <button
+          class="btn btn-outline-secondary bi bi-calendar3"
+          (click)="e.toggle()"
+          type="button"
+        ></button>
+      </div>
+      <p
+        class="errorDate mt-2 mb-0"
+        *ngIf="bookingForm.get('checkoutDate')?.hasError('required')"
+      >
+        Check-out Date is Required 📢
+      </p>
+    </div>
+    <div class="date col-9">
+      <div class="input-group">
+        <input
+          class="form-control"
+          formControlName="bookingDate"
+          placeholder="Booking Date"
+          ngbDatepicker
+          #f="ngbDatepicker"
+          type="text"
+        />
+        <button
+          class="btn btn-outline-secondary bi bi-calendar3"
+          (click)="f.toggle()"
+          type="button"
+        ></button>
+      </div>
+      <p
+        class="errorDate mt-2 mb-0"
+        *ngIf="bookingForm.get('bookingDate')?.hasError('required')"
+      >
+        Booking Date is Required 📢
+      </p>
+    </div>
+    <ngb-accordion
+      formGroupName="address"
+      #acc="ngbAccordion"
+      activeIds="ngb-panel-0"
+      class="accordion col-9 mt-3"
+    >
+      <ngb-panel title="Address Information">
+        <ng-template ngbPanelContent>
+          <div class="mb-3 row">
+            <label
+              for="typeahead-config"
+              class="col-xs-3 col-sm-auto col-form-label"
+              >Address:</label
+            >
+            <div class="col">
+              <input
+                type="text"
+                formControlName="addressLine"
+                placeholder="Provide the Address Line"
+                class="accordation__form form-control"
+              />
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label
+              for="typeahead-config"
+              class="col-xs-3 col-sm-auto col-form-label"
+              >City:</label
+            >
+            <div class="col">
+              <input
+                type="text"
+                formControlName="city"
+                placeholder="Provide the City"
+                class="accordation__form form-control"
+              />
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label
+              for="typeahead-config"
+              class="col-xs-3 col-sm-auto col-form-label"
+              >State:</label
+            >
+            <div class="col">
+              <input
+                type="text"
+                formControlName="state"
+                placeholder="Provide the State"
+                class="accordation__form form-control"
+              />
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label
+              for="typeahead-config"
+              class="col-xs-3 col-sm-auto col-form-label"
+              >Country:</label
+            >
+            <div class="col">
+              <input
+                type="text"
+                formControlName="country"
+                placeholder="Provide the Country"
+                class="accordation__form form-control"
+              />
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label
+              for="typeahead-config"
+              class="col-xs-3 col-sm-auto col-form-label"
+              >Zip Code:</label
+            >
+            <div class="col">
+              <input
+                type="number"
+                formControlName="zipCode"
+                placeholder="Provide the Zip Code"
+                class="accordation__form form-control"
+              />
+            </div>
+          </div>
+        </ng-template>
+      </ngb-panel>
+    </ngb-accordion>
+    <ngb-accordion
+      #acc="ngbAccordion"
+      activeIds="ngb-panel-0"
+      class="accordion col-9 mt-3"
+    >
+      <ngb-panel title="Add Guest">
+        <ng-template ngbPanelContent>
+          <div formArrayName="guests">
+            <div
+              *ngFor="let guest of guests.controls; let i = index"
+              class="mt-3"
+            >
+              <div [formGroupName]="i">
+                <div class="mb-3 row">
+                  <label
+                    for="typeahead-config"
+                    class="col-xs-3 col-sm-auto col-form-label"
+                    >Name:</label
+                  >
+                  <div class="col">
+                    <input
+                      type="text"
+                      formControlName="guestName"
+                      placeholder="Provide the Name of the Guest"
+                      class="accordation__form form-control"
+                    />
+                  </div>
+                </div>
+
+                <div class="mb-3 row">
+                  <label
+                    for="typeahead-config"
+                    class="col-xs-3 col-sm-auto col-form-label"
+                    >Age:</label
+                  >
+                  <div class="col">
+                    <input
+                      type="number"
+                      formControlName="age"
+                      placeholder="Provide the Age of the Guest"
+                      class="accordation__form form-control"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-center mt-4">
+                <button
+                  class="book btn btn-danger"
+                  type="button"
+                  (click)="removeGuest(i)"
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </ngb-panel>
+    </ngb-accordion>
+    <div class="d-flex justify-content-center mt-4">
+      <button
+        class="book btn btn-primary me-2"
+        type="button"
+        (click)="addGuest()"
+      >
+        Add Guest
+      </button>
+      <button
+        [disabled]="bookingForm.invalid"
+        class="book btn btn-primary ms-2"
+      >
+        Book Room
+      </button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,47 @@
+input {
+  font-size: small;
+}
+
+.col {
+  display: flex;
+  justify-content: end;
+  margin-right: 6rem;
+}
+
+.form-control {
+  width: 25rem;
+}
+
+.accordation__form {
+  width: 14rem;
+}
+
+.row {
+  margin-left: 5rem;
+}
+
+.date,
+.accordion {
+  margin-left: 5.7rem;
+}
+
+.book {
+  width: 110px;
+}
+
+.accordion {
+  --bs-accordion-btn-padding-x: 0.5rem;
+  --bs-accordion-btn-padding-y: 0.5rem;
+}
+
+.error {
+  color: red;
+  font-size: xx-small;
+  margin-left: 10rem;
+}
+
+.errorDate {
+  color: red;
+  font-size: xx-small;
+  margin-left: 0.5rem;
+}
